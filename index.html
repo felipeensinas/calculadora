@@ -14,28 +14,39 @@
         <br /><br />
 
     <label for="operacao">Digite a operação :</label>
-        <select name="operacao" id="operacao"> 
-    
+    <select name="operacao" id="operacao">     
         <option>Soma</option>
         <option>Subtracao</option>
         <option>Divisao</option>
         <option>Multiplicacao</option>
-        </select>
-        <br /><br />
+    </select>
+    <br /><br />
 
     <label for="valor2">Digite o valor 2 :</label>
     <input type="number" name="valor2" id="valor2" />
     <br /><br />
 
-    <button onClick="somar();">Clique aqui para resultado</button>
+    <button onClick="resultado();">Clique aqui para resultado</button>
 
     <script type="text/javascript">
-    alert ('Vamos calcular?');
-    function Soma () {
-    return valor1 + valor2;
+    
+    function somar (valor1, valor2) {
+        return parseInt(valor1) + parseInt(valor2);
+    }
+    
+    function resultado(){
+        var valor1 = document.getElementById("valor1").value;
+        var operacao = document.getElementById("operacao").value;
+        var valor2 = document.getElementById("valor2").value;
+
+        if(operacao === "Soma") return mostrarResultado(somar(valor1, valor2));
+
     }
 
-        
+    function mostrarResultado(resultado){
+        return alert(resultado);
+    }    
+    
     </script>
 
 
