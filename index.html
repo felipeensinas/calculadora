@@ -30,37 +30,34 @@
 
     <script type="text/javascript">
     
+    /* FUNÇÕES MATEMÁTICAS */
     function somar (valor1, valor2) {
         return parseInt(valor1) + parseInt(valor2);
     }
     
+    function subtracao (valor1, valor2) {
+        return parseInt(valor1) - parseInt(valor2);
+    }
+
+
+
+    // DIRECIONA O RESULTADO À FORMULA CORRETA.
     function resultado(){
         var valor1 = document.getElementById("valor1").value;
         var operacao = document.getElementById("operacao").value;
         var valor2 = document.getElementById("valor2").value;
 
         if(operacao === "Soma") return mostrarResultado(somar(valor1, valor2));
+        if(operacao === "Subtracao") return mostrarResultado(subtrair(valor1, valor2));
+
 
     }
+
+    // RETORNA PARA O USUÁRIO O RESULTADO EM FORMA DE ALERTA.
     function mostrarResultado(resultado){
         return alert(resultado);
     }    
 
-    funcition subtracao (valor1, valor2) {
-        return parseInt(valor1) - parseInt(valor2)
-    }
-    
-    function resultado(){
-        var valor1 = document.getElementbyID("valor1").value;
-        var operacao = document.getElementbyID("operacao").value;
-        var valor2 = document.getElementbyID("valor2").value;
-
-        if(operacao === "Subtracao") return mostrarResultado(subtracao(valor1, valor2));
-    }
-    
-    function mostrarResultado(resultado){
-        return alert(resultado);
-    }
     </script>
 
 
