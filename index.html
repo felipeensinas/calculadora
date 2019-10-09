@@ -19,6 +19,7 @@
         <option>Subtracao</option>
         <option>Divisao</option>
         <option>Multiplicacao</option>
+        <option>Porcentagem</option>
     </select>
     <br /><br />
 
@@ -26,19 +27,45 @@
     <input type="number" name="valor2" id="valor2" />
     <br /><br />
 
+    <span id="resultado"></span>
+
     <button onClick="resultado();">Clique aqui para resultado</button>
+    <br /><br />
+    <button onClick="clear();">Limpar</button>
 
     <script type="text/javascript">
     
     /* FUNÇÕES MATEMÁTICAS */
-    function somar (valor1, valor2) {
+    function somar(valor1, valor2) {
         return parseInt(valor1) + parseInt(valor2);
     }
     
-    function subtracao (valor1, valor2) {
+    function subtracao(valor1, valor2) {
         return parseInt(valor1) - parseInt(valor2);
     }
 
+    function multiplicacao(valor1, valor2) {
+        return parseInt(valor1) * parseInt(valor2);
+    }
+
+    function divisao(valor1, valor2) {
+        return parseInt(valor1) / parseInt(valor2);
+    }
+    
+    function porcentagem(valor1, valor2) {
+        return (parseInt(valor1) * parseInt(valor2))/100;
+    }
+
+    function mostrarnatela(valor1, valor2) {
+        console.log(resultado);
+    }
+
+    function clear(){
+        document.getElementById("valor1").value = "";
+        document.getElementById("operacao").value = "";
+        document.getElementById("valor2").value = "";
+
+    } 
 
 
     // DIRECIONA O RESULTADO À FORMULA CORRETA.
@@ -48,15 +75,22 @@
         var valor2 = document.getElementById("valor2").value;
 
         if(operacao === "Soma") return mostrarResultado(somar(valor1, valor2));
-        if(operacao === "Subtracao") return mostrarResultado(subtrair(valor1, valor2));
+        if(operacao === "Subtracao") return mostrarResultado(subtracao(valor1, valor2));
+        if(operacao === 'Multiplicacao') return mostrarResultado(multiplicacao(valor1, valor2));
+        if(operacao === 'Divisao') return mostrarResultado(divisao(valor1, valor2));
+        if(operacao === 'Porcentagem') return mostrarResultado(porcentagem(valor1, valor2));
+        
 
 
     }
 
     // RETORNA PARA O USUÁRIO O RESULTADO EM FORMA DE ALERTA.
     function mostrarResultado(resultado){
+        console.log(resultado);
         return alert(resultado);
+        
     }    
+
 
     </script>
 
