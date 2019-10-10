@@ -60,12 +60,19 @@
         console.log(resultado);
     }
 
-    function clear(){   
-        document.getElementById("valor1").value = "";
-        document.getElementById("operacao").value = "";
-        document.getElementById("valor2").value = "";
+    function clear(){
+        document.getElementById("resultado").innerHTML = "0";
+       // result.innerHTML = "0";
         
     } 
+
+    function mostrarResultado () {
+        resultado.innerHTML = `${resultado}`;
+        //alert(`${resultado}`);
+        console.log(`${resultado}`);
+            return resultado;
+
+    }
 
     // DIRECIONA O RESULTADO À FORMULA CORRETA.
     function resultado(){
