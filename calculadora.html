@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Primeiro Projeto</title>
+</head>
+<body>
+    
+    <table cellspacing="0" cellpadding="5">
+        <tr>
+            <td>Valor 1:</td>
+            <td><input type="number" name="value1" id="value1"></td>
+        </tr>
+        <tr>
+            <td>Operação</td>
+            <td>
+                <select id="operator" name="operator">
+                    <option value="1">Somar</option>
+                    <option value="2">Subtrair</option>
+                    <option value="3">Dividir</option>
+                    <option value="4">Multiplicar</option>
+                    <option value="5">Porcentagem</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Valor 2:</td>
+            <td><input type="number" name="value2" id="value2"></td>
+        </tr>
+        <tr>
+            <td>Resultado</td>
+            <td><span id="result">0</span></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onClick="reset();">Limpar</button>
+                <button onClick="calculate();">Calcular</button>
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+
+        let field1 = document.getElementById("value1");
+        let field2 = document.getElementById("value2");
+        let operator = document.getElementById("operator");
+        let result = document.getElementById("result");
+
+        let value1 = 0;
+        let value2 = 0;
+        let resultFinal = 0;
+
+        
+
+        const operations = function(){
+
+            value1 = parseInt(field1.value);
+            value2 = parseInt(field2.value);
+
+            return {
+                sum: () => {
+                    resultFinal = value1 + value2;
+                    return resultFinal;
+                },
+                sub: () => {
+                    resultFinal = value1 - value2;
+                    return resultFinal;
+                },
+                div: () => {
+                    resultFinal = value1 / value2;
+                    return resultFinal;
+                },
+                mult: () => {
+                    resultFinal = value1 * value2;
+                    return resultFinal;
+                },
+                perc: () => {
+                    resultFinal = (value1 * value2) / 100;
+                    return resultFinal;
+                }
+            }
+        }
+
+        function calculate(){
+            if(operator.value === "1") operations().sum();
+            if(operator.value === "2") operations().sub();
+            if(operator.value === "3") operations().div();
+            if(operator.value === "4") operations().mult();
+            if(operator.value === "5") operations().perc();
+            return displayResult();
+        }
+
+
+        function displayResult(){
+            result.innerHTML = `${resultFinal}`;
+            //alert(`${resultFinal}`);
+            console.log(`${resultFinal}`);
+            return resultFinal;
+        }
+
+
+        function reset(){
+            field1.value = "";
+            field2.value = "";
+            operator.selectedIndex = 0;
+            result.innerHTML = "0";
+        }
+
+    </script>
+
+</body>
+</html>
